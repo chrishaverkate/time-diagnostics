@@ -5,11 +5,19 @@
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
+TimeDiagnostics	KEYWORD1
+Timer	KEYWORD1
+Timers	KEYWORD1
+Identity	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
-
+# TimeDiagnostics
+get_timer	KEYWORD2
+get_timer_measurement	KEYWORD2
+report	KEYWORD2
+START_TIMER	KEYWORD2
 ######################################
 # Instances (KEYWORD2)
 #######################################
@@ -17,3 +25,4 @@
 #######################################
 # Constants (LITERAL1)
 #######################################
+NAMES	LITERAL1
