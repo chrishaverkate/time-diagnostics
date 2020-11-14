@@ -4,7 +4,7 @@
 #include "minunit.h"
 
 #include "../src/timer.h"
-#include "../time_diagnostics.h"
+#include "../src/time_diagnostics.h"
 
 static char* test_time_diag_create() {
 	TimeDiagnostics<2, 100> td;

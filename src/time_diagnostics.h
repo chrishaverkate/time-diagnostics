@@ -1,9 +1,8 @@
 #pragma once
-#include "src/timer.h"
-#include "src/time_post_receiver.h"
+#include "timer.h"
+#include "time_post_receiver.h"
 #include <Arduino.h>
 
-#include "src/serial_printf.h"
 
 /** @brief Simplified wrapper to getting a new timer object.
  * 	It's recommended to use this for cleaner code and easier use.

@@ -11,15 +11,13 @@ project(${PROJECT_NAME})
 set(
 	${PROJECT_NAME}_SRCS
 
+	tests/serial_printf.cpp
 	tests/time_diagnostics_tests.cpp
 	tests/timer_tests.cpp
 
-	src/serial_printf.cpp
 	src/timer.cpp
 
 	time_diagnostics_runner.cpp
-
-
 )
 
 set(
@@ -29,11 +27,11 @@ set(
 	tests/timer_tests.h
 
 	src/identities.h
-	src/serial_printf.h
-	src/timer.h
+	src/time_diagnostics.h
 	src/time_post_receiver.h
+	src/timer.h
 
-	time_diagnostics.h
+	tests/serial_printf.h
 )
 
 ### Additional static libraries to include in the target.

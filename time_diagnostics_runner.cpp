@@ -1,7 +1,7 @@
 #include <Arduino.h>
-#include "time_diagnostics.h"
+#include "src/time_diagnostics.h"
 
-#include "src/serial_printf.h"
+#include "tests/serial_printf.h"
 #include "src/timer.h"
 #include "src/identities.h"
 
