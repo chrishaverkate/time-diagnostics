@@ -1,5 +1,5 @@
 
-// To disable the diagnostics, just define the macro below. No functions will be called.
+// To disable the diagnostics, just define the macro below. No functions will be called. This is a good idea for release ready code.
 // Note: This must be defined before the include of time_diagnostics.
 // #define DISABLE_TIME_DIAGNOSTICS
 

@@ -26,7 +26,7 @@ TimeDiagnostics td;
  } // the timer will finish timing and post because object is destroyed at the end of the scope.
 @endcode
  *
- * @note The template parameters are to ensure a fixed size and avoid allocations.
+ * @note The template parameter is to ensure a fixed size and avoid allocations.
  *
  * @tparam length_posts the number of timer recordings you expect to have
  */
