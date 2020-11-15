@@ -1,11 +1,11 @@
 #include "timer_tests.h"
-
-#include <Arduino.h>
+#include "fake_time_receiver.h"
 #include "minunit.h"
 
-#include "../src/timer.h"
+#include <Arduino.h>
 
-#include "fake_time_receiver.h"
+#include "../identities.h"
+#include "../src/internal/timer.h"
 
 static char* test_timer_create() {
 	FakeTimeReceiver ftr;

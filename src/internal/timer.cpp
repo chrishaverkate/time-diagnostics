@@ -1,7 +1,7 @@
 #include "timer.h"
 #include <Arduino.h>
 
-Timer::Timer(Timers::Identity identity, TimePostReceiver* receiver)
+Timer::Timer(int identity, TimePostReceiver* receiver)
 	: _id(identity)
 	, _receiver(receiver)
 	, _time_start(micros())
@@ -9,7 +9,7 @@ Timer::Timer(Timers::Identity identity, TimePostReceiver* receiver)
 
 }
 
-Timers::Identity Timer::get_identity() const {
+int Timer::get_identity() const {
 	return _id;
 }
 

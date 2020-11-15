@@ -1,19 +1,18 @@
 #pragma once
 
-#include "../src/time_post_receiver.h"
-#include "../src/identities.h"
+#include "../src/internal/time_post_receiver.h"
 
 class FakeTimeReceiver : public TimePostReceiver {
 public:
 	FakeTimeReceiver()
 		: _time(0U)
-		, _id(Timers::Invalid)
+		, _id(-1)
 	{}
-	void post(unsigned long time, Timers::Identity id) override {
+	void post(unsigned long time, int id) override {
 		_time = time;
 		_id = id;
 	}
 
 	unsigned long _time;
-	Timers::Identity _id;
+	int _id;
 };

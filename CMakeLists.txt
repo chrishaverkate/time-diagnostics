@@ -13,9 +13,10 @@ set(
 
 	tests/serial_printf.cpp
 	tests/time_diagnostics_tests.cpp
+	tests/disable_time_diagnostics_tests.cpp
 	tests/timer_tests.cpp
 
-	src/timer.cpp
+	src/internal/timer.cpp
 
 	time_diagnostics_runner.cpp
 )
@@ -26,10 +27,10 @@ set(
 	tests/time_diagnostics_tests.h
 	tests/timer_tests.h
 
-	src/identities.h
+	identities.h
 	src/time_diagnostics.h
-	src/time_post_receiver.h
-	src/timer.h
+	src/internal/time_post_receiver.h
+	src/internal/timer.h
 
 	tests/serial_printf.h
 )
