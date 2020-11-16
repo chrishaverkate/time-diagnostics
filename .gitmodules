@@ -1,0 +1,3 @@
+[submodule "libs/lizard"]
+	path = libs/lizard
+	url = https://github.com/terryyin/lizard.git

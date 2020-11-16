@@ -1,6 +1,7 @@
 #include "serial_printf.h"
 
 void serial_printf(HardwareSerial& serial, const char* fmt, ...) {
+	// #lizard forgives the complexity
 	va_list argv;
 	va_start(argv, fmt);
 

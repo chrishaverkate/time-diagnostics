@@ -62,6 +62,7 @@ set(nano.upload.speed 115200)
 
 generate_arduino_firmware(${PROJECT_NAME})
 
+# Upload the compiled hex file to the Arduino board.
 add_custom_command(
 	TARGET ${PROJECT_NAME}
 	POST_BUILD
@@ -69,4 +70,35 @@ add_custom_command(
 	ARGS "-C${ARDUINO_SDK_PATH}/hardware/tools/avr/etc/avrdude.conf" -patmega328p -c${${PROJECT_NAME}_PROGRAMMER} -P${${PROJECT_NAME}_PORT} -b${nano.upload.speed} -D -Uflash:w:${PROJECT_NAME}.hex:i
 	WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 	COMMENT "Uploading to Arduino..."
+)
+
+# Run Cyclomatic Complexity Analyzer and fail the build if thresholds are surpassed.
+add_custom_command(
+	TARGET ${PROJECT_NAME}
+	PRE_BUILD
+	COMMAND python3 libs/lizard/lizard.py
+	--CCN 10
+	--length 100
+	--arguments 5
+	${CMAKE_CURRENT_SOURCE_DIR}/src/*
+	${CMAKE_CURRENT_SOURCE_DIR}/tests/*
+	-x"${CMAKE_CURRENT_SOURCE_DIR}/tests/serial_printf.cpp"
+	--warnings_only
+	WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+	COMMENT "Checking for complexity violations..."
+)
+
+
+# Run Cyclomatic Complexity Analyzer and produce HTML report in CMake binary directory for review.
+add_custom_target(
+	lizard_report
+	COMMAND python3 libs/lizard/lizard.py
+	--CCN 10
+	--length 100
+	--arguments 5
+	${CMAKE_CURRENT_SOURCE_DIR}/src/*
+	${CMAKE_CURRENT_SOURCE_DIR}/tests/*
+	-x"${CMAKE_CURRENT_SOURCE_DIR}/tests/serial_printf.cpp"
+	-H > ${CMAKE_CURRENT_BINARY_DIR}/Report.html
+	WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
